@@ -860,7 +860,7 @@ function playTrack(idx){
     activeSongId=song.id;
     initAudioContext();
     if(audioCtx.state==='suspended')audioCtx.resume();
-    audio.src=`songs/${song.file}`;
+    audio.src=song.file;
     audio.volume=muted?0:vol;
     audio.play().catch(e=>console.warn('Play failed:',e));
     document.getElementById('pTitle').textContent=song.title;
