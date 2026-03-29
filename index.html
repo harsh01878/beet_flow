@@ -858,9 +858,8 @@ function playTrack(idx){
     currentIdx=idx;
     const song=allSongs[currentIdx];
     activeSongId=song.id;
-    initAudioContext();
-    if(audioCtx.state==='suspended')audioCtx.resume();
     audio.src=song.file;
+    audio.crossOrigin="anonymous";
     audio.volume=muted?0:vol;
     audio.play().catch(e=>console.warn('Play failed:',e));
     document.getElementById('pTitle').textContent=song.title;
